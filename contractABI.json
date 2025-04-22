@@ -1,0 +1,901 @@
+[
+  {
+    "type": "constructor",
+    "inputs": [],
+    "stateMutability": "payable"
+  },
+  {
+    "type": "receive",
+    "stateMutability": "payable"
+  },
+  {
+    "type": "function",
+    "name": "coverDebt",
+    "inputs": [],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "deactivateProfile",
+    "inputs": [],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "getAddressByNickname",
+    "inputs": [
+      {
+        "name": "nickname",
+        "type": "string",
+        "internalType": "string"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getAvailablePeriods",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256[]",
+        "internalType": "uint256[]"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getLatestMessages",
+    "inputs": [
+      {
+        "name": "count",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "tuple[]",
+        "internalType": "struct ReactiveTwitter.Message[]",
+        "components": [
+          {
+            "name": "sender",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "content",
+            "type": "string",
+            "internalType": "string"
+          },
+          {
+            "name": "timestamp",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "nickname",
+            "type": "string",
+            "internalType": "string"
+          },
+          {
+            "name": "replyToMessageId",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "isDeleted",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ]
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getMessage",
+    "inputs": [
+      {
+        "name": "messageId",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "tuple",
+        "internalType": "struct ReactiveTwitter.Message",
+        "components": [
+          {
+            "name": "sender",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "content",
+            "type": "string",
+            "internalType": "string"
+          },
+          {
+            "name": "timestamp",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "nickname",
+            "type": "string",
+            "internalType": "string"
+          },
+          {
+            "name": "replyToMessageId",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "isDeleted",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ]
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getMessageCount",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getMessagesByPeriod",
+    "inputs": [
+      {
+        "name": "period",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "tuple[]",
+        "internalType": "struct ReactiveTwitter.Message[]",
+        "components": [
+          {
+            "name": "sender",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "content",
+            "type": "string",
+            "internalType": "string"
+          },
+          {
+            "name": "timestamp",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "nickname",
+            "type": "string",
+            "internalType": "string"
+          },
+          {
+            "name": "replyToMessageId",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "isDeleted",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ]
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getMessagesBySender",
+    "inputs": [
+      {
+        "name": "sender",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "tuple[]",
+        "internalType": "struct ReactiveTwitter.Message[]",
+        "components": [
+          {
+            "name": "sender",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "content",
+            "type": "string",
+            "internalType": "string"
+          },
+          {
+            "name": "timestamp",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "nickname",
+            "type": "string",
+            "internalType": "string"
+          },
+          {
+            "name": "replyToMessageId",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "isDeleted",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ]
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getMessagesWithPagination",
+    "inputs": [
+      {
+        "name": "page",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "pageSize",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "tuple[]",
+        "internalType": "struct ReactiveTwitter.Message[]",
+        "components": [
+          {
+            "name": "sender",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "content",
+            "type": "string",
+            "internalType": "string"
+          },
+          {
+            "name": "timestamp",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "nickname",
+            "type": "string",
+            "internalType": "string"
+          },
+          {
+            "name": "replyToMessageId",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "isDeleted",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ]
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getOriginalMessage",
+    "inputs": [
+      {
+        "name": "replyMessageId",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "tuple",
+        "internalType": "struct ReactiveTwitter.Message",
+        "components": [
+          {
+            "name": "sender",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "content",
+            "type": "string",
+            "internalType": "string"
+          },
+          {
+            "name": "timestamp",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "nickname",
+            "type": "string",
+            "internalType": "string"
+          },
+          {
+            "name": "replyToMessageId",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "isDeleted",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ]
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getOwner",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getParameters",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "_maxMessageLength",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "_messageCooldown",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "_maxReturnCount",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "_maxActiveMessages",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getRepliesForMessage",
+    "inputs": [
+      {
+        "name": "messageId",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "tuple[]",
+        "internalType": "struct ReactiveTwitter.Message[]",
+        "components": [
+          {
+            "name": "sender",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "content",
+            "type": "string",
+            "internalType": "string"
+          },
+          {
+            "name": "timestamp",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "nickname",
+            "type": "string",
+            "internalType": "string"
+          },
+          {
+            "name": "replyToMessageId",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "isDeleted",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ]
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getTotalActiveMessages",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getUserProfile",
+    "inputs": [
+      {
+        "name": "user",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "nickname",
+        "type": "string",
+        "internalType": "string"
+      },
+      {
+        "name": "avatarCode",
+        "type": "string",
+        "internalType": "string"
+      },
+      {
+        "name": "isActive",
+        "type": "bool",
+        "internalType": "bool"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "markMessageAsDeleted",
+    "inputs": [
+      {
+        "name": "messageId",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "pay",
+    "inputs": [
+      {
+        "name": "amount",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "postMessage",
+    "inputs": [
+      {
+        "name": "content",
+        "type": "string",
+        "internalType": "string"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "react",
+    "inputs": [
+      {
+        "name": "",
+        "type": "tuple",
+        "internalType": "struct IReactive.LogRecord",
+        "components": [
+          {
+            "name": "chain_id",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "_contract",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "topic_0",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "topic_1",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "topic_2",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "topic_3",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "data",
+            "type": "bytes",
+            "internalType": "bytes"
+          },
+          {
+            "name": "block_number",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "op_code",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "block_hash",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "tx_hash",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "log_index",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ]
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "replyToMessage",
+    "inputs": [
+      {
+        "name": "replyToMessageId",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "content",
+        "type": "string",
+        "internalType": "string"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "transferOwnership",
+    "inputs": [
+      {
+        "name": "newOwner",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "updateAvatar",
+    "inputs": [
+      {
+        "name": "avatarCode",
+        "type": "string",
+        "internalType": "string"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "updateParameters",
+    "inputs": [
+      {
+        "name": "newMaxMessageLength",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "newMessageCooldown",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "newMaxReturnCount",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "newMaxActiveMessages",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "updateProfile",
+    "inputs": [
+      {
+        "name": "nickname",
+        "type": "string",
+        "internalType": "string"
+      },
+      {
+        "name": "avatarCode",
+        "type": "string",
+        "internalType": "string"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "event",
+    "name": "Callback",
+    "inputs": [
+      {
+        "name": "chain_id",
+        "type": "uint256",
+        "indexed": true,
+        "internalType": "uint256"
+      },
+      {
+        "name": "_contract",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "gas_limit",
+        "type": "uint64",
+        "indexed": true,
+        "internalType": "uint64"
+      },
+      {
+        "name": "payload",
+        "type": "bytes",
+        "indexed": false,
+        "internalType": "bytes"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "MessageDeleted",
+    "inputs": [
+      {
+        "name": "messageId",
+        "type": "uint256",
+        "indexed": true,
+        "internalType": "uint256"
+      },
+      {
+        "name": "sender",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "MessageSent",
+    "inputs": [
+      {
+        "name": "messageId",
+        "type": "uint256",
+        "indexed": true,
+        "internalType": "uint256"
+      },
+      {
+        "name": "sender",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "content",
+        "type": "string",
+        "indexed": false,
+        "internalType": "string"
+      },
+      {
+        "name": "timestamp",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "OldMessagesDeleted",
+    "inputs": [
+      {
+        "name": "count",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "ParameterUpdated",
+    "inputs": [
+      {
+        "name": "paramName",
+        "type": "string",
+        "indexed": false,
+        "internalType": "string"
+      },
+      {
+        "name": "newValue",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "ProfileDeactivated",
+    "inputs": [
+      {
+        "name": "user",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "ProfileUpdated",
+    "inputs": [
+      {
+        "name": "user",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "nickname",
+        "type": "string",
+        "indexed": false,
+        "internalType": "string"
+      },
+      {
+        "name": "avatarCode",
+        "type": "string",
+        "indexed": false,
+        "internalType": "string"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "ReplyMessageSent",
+    "inputs": [
+      {
+        "name": "messageId",
+        "type": "uint256",
+        "indexed": true,
+        "internalType": "uint256"
+      },
+      {
+        "name": "sender",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "replyToMessageId",
+        "type": "uint256",
+        "indexed": true,
+        "internalType": "uint256"
+      },
+      {
+        "name": "timestamp",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      }
+    ],
+    "anonymous": false
+  }
+]
