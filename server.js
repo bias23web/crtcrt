@@ -18,6 +18,12 @@ const require = createRequire(import.meta.url);
 // Load environment variables
 dotenv.config();
 
+// Log environment variables for debugging
+console.log('Environment variables:');
+console.log('CONTRACT_ADDRESS:', process.env.CONTRACT_ADDRESS);
+console.log('RPC_URL:', process.env.RPC_URL);
+console.log('PORT:', process.env.PORT);
+
 // Import contract ABI
 const contractABI = require('./contractABI.json');
 const CONTRACT_ADDRESS = process.env.CONTRACT_ADDRESS;
