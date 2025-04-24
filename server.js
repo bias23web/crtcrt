@@ -49,6 +49,7 @@ const server = http.createServer(app);
 
 // Create WebSocket server
 const wss = new WebSocketServer({ server });
+console.log("WebSocket server created and attached to HTTP server");
 
 // Initialize provider and contract
 let provider;
@@ -1071,7 +1072,7 @@ app.get('/api/invalidate-cache', (req, res) => {
 
 // WebSocket handler for connections
 wss.on('connection', (ws) => {
-  console.log('Client connected to WebSocket');
+  console.log('Client connected to WebSocket with ID:', ws._socket.remoteAddress);
 
   // Handle messages from client
   ws.on('message', async (message) => {
@@ -1380,4 +1381,6 @@ server.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
   console.log(`Connected to RPC: ${RPC_URL}`);
   console.log(`Contract address: ${CONTRACT_ADDRESS}`);
+  console.log(`WebSocket server is active on ws://localhost:${PORT}`);
+  console.log(`WebSocket clients connected: ${wss.clients ? wss.clients.size : 0}`);
 });

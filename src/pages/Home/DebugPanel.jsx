@@ -5,13 +5,13 @@ import { calculatePostingRate } from '../../utils/messageHelpers';
 /**
  * Debug panel component for application monitoring
  */
-const DebugPanel = ({ 
-  account, 
-  contract, 
-  hasProfile, 
-  messages, 
-  messageIdCache, 
-  loading, 
+const DebugPanel = ({
+  account,
+  contract,
+  hasProfile,
+  messages,
+  messageIdCache,
+  loading,
   autoRefresh,
   newMessagesCount,
   lastKnownMessageId,
@@ -69,7 +69,7 @@ const DebugPanel = ({
             contract.getMessageCount().then(v => v.toString()),
             contract.getOwner()
           ]);
-          
+
           setContractStats({
             activeMessages,
             messageCount,
@@ -138,12 +138,15 @@ const DebugPanel = ({
   return (
     <>
       {/* Debug toggle button */}
-      <button
-        onClick={toggleDebugPanel}
-        className="fixed bottom-4 right-4 w-8 h-8 flex items-center justify-center text-sky-300 rounded-full shadow-lg hover:text-sky-200 z-50 font-mono text-xs"
-      >
-        [?]
-      </button>
+
+      {isDev && (
+        <button
+          onClick={toggleDebugPanel}
+          className="fixed bottom-4 right-4 w-8 h-8 flex items-center justify-center text-sky-300 rounded-full shadow-lg hover:text-sky-200 z-50 font-mono text-xs"
+        >
+          [?]
+        </button>
+      )}
 
       {/* Debug panel */}
       {isDev && showDebugPanel && (
@@ -159,38 +162,36 @@ const DebugPanel = ({
               </button>
             </div>
           </div>
-          
+
           {refreshTime && (
             <div className="text-gray-400 text-xs mb-2">Last refreshed: {refreshTime}</div>
           )}
 
           {/* Connection section */}
           <div className="mb-2 border-b border-gray-800 pb-2">
-            <div 
-              className="flex items-center cursor-pointer" 
+            <div
+              className="flex items-center cursor-pointer"
               onClick={() => toggleSection('network')}
             >
               <span className="mr-1">{expanded.network ? '[-]' : '[+]'}</span>
               <h4 className="font-bold">Network</h4>
             </div>
-            
+
             {expanded.network && (
               <div className="pl-4 mt-1 space-y-1">
                 <div>
                   <span className="text-gray-400">Connection: </span>
-                  <span className={`${
-                    connectionStatus === 'connected' ? 'text-green-300' : 
-                    connectionStatus === 'readonly' ? 'text-yellow-300' : 
-                    'text-red-300'
-                  }`}>
+                  <span className={`${connectionStatus === 'connected' ? 'text-green-300' :
+                      connectionStatus === 'readonly' ? 'text-yellow-300' :
+                        'text-red-300'
+                    }`}>
                     {connectionStatus}
                   </span>
                 </div>
                 <div>
                   <span className="text-gray-400">WebSocket: </span>
-                  <span className={`${
-                    wsConnection?.readyState === 1 ? 'text-green-300' : 'text-yellow-300'
-                  }`}>
+                  <span className={`${wsConnection?.readyState === 1 ? 'text-green-300' : 'text-yellow-300'
+                    }`}>
                     {formatWsState(wsConnection)}
                   </span>
                 </div>
@@ -212,14 +213,14 @@ const DebugPanel = ({
 
           {/* Messages section */}
           <div className="mb-2 border-b border-gray-800 pb-2">
-            <div 
-              className="flex items-center cursor-pointer" 
+            <div
+              className="flex items-center cursor-pointer"
               onClick={() => toggleSection('messages')}
             >
               <span className="mr-1">{expanded.messages ? '[-]' : '[+]'}</span>
               <h4 className="font-bold">Messages</h4>
             </div>
-            
+
             {expanded.messages && (
               <div className="pl-4 mt-1 space-y-1">
                 <div>
@@ -268,14 +269,14 @@ const DebugPanel = ({
 
           {/* Contract section */}
           <div className="mb-2 border-b border-gray-800 pb-2">
-            <div 
-              className="flex items-center cursor-pointer" 
+            <div
+              className="flex items-center cursor-pointer"
               onClick={() => toggleSection('contract')}
             >
               <span className="mr-1">{expanded.contract ? '[-]' : '[+]'}</span>
               <h4 className="font-bold">Contract</h4>
             </div>
-            
+
             {expanded.contract && (
               <div className="pl-4 mt-1 space-y-1">
                 <div>
@@ -308,14 +309,14 @@ const DebugPanel = ({
 
           {/* Memory usage section */}
           <div className="mb-2">
-            <div 
-              className="flex items-center cursor-pointer" 
+            <div
+              className="flex items-center cursor-pointer"
               onClick={() => toggleSection('memory')}
             >
               <span className="mr-1">{expanded.memory ? '[-]' : '[+]'}</span>
               <h4 className="font-bold">Memory</h4>
             </div>
-            
+
             {expanded.memory && (
               <div className="pl-4 mt-1 space-y-1">
                 {getMemoryInfo().available ? (
