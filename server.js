@@ -70,17 +70,20 @@ const connectedClients = new Map();
 const messageIdMap = new Map();
 
 // Helper function to format messages
-const formatMessage = (msg) => ({
-  messageId: msg.messageId ? msg.messageId.toString() : msg.timestamp.toString(),
-  displayId: safeToNumber(msg.messageId) < 1000000 ? msg.messageId.toString() : msg.messageId.toString().substr(-2),
-  sender: msg.sender,
-  nickname: msg.nickname || `${msg.sender.slice(0, 6)}...${msg.sender.slice(-4)}`,
-  content: msg.content,
-  timestamp: parseInt(msg.timestamp.toString()) * 1000, // Convert to milliseconds
-  isReply: msg.replyToMessageId && msg.replyToMessageId.toString() !== '0',
-  replyToMessageId: msg.replyToMessageId ? msg.replyToMessageId.toString() : '0',
-  isDeleted: msg.isDeleted
-});
+const formatMessage = (msg) => {
+  if (!msg) return null;
+  return {
+    messageId: msg.messageId ? msg.messageId.toString() : (msg.timestamp ? msg.timestamp.toString() : '0'),
+    displayId: msg.messageId ? (safeToNumber(msg.messageId) < 1000000 ? msg.messageId.toString() : msg.messageId.toString().substr(-2)) : '0',
+    sender: msg.sender || '',
+    nickname: msg.nickname || (msg.sender ? `${msg.sender.slice(0, 6)}...${msg.sender.slice(-4)}` : 'Unknown'),
+    content: msg.content || '',
+    timestamp: msg.timestamp ? parseInt(msg.timestamp.toString()) * 1000 : Date.now(), // Convert to milliseconds
+    isReply: msg.replyToMessageId && msg.replyToMessageId.toString() !== '0',
+    replyToMessageId: msg.replyToMessageId ? msg.replyToMessageId.toString() : '0',
+    isDeleted: !!msg.isDeleted
+  };
+};
 
 // Helper function to safely convert BigNumber to Number
 const safeToNumber = (value) => {

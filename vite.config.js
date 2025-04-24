@@ -6,7 +6,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig(({ command, mode }) => {
   const env = loadEnv(mode, process.cwd());
 
-  const API_URL = `${env.VITE_API_URL ?? 'http://localhost:3000'}`;
+  const API_URL = `${env.VITE_API_URL ?? 'http://localhost:3000/api'}`;
   const PORT = `${env.VITE_PORT ?? '3000'}`;
   const WS_URL = `${env.VITE_WS_URL ?? 'ws://localhost:3000'}`;
 
